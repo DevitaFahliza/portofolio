@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devita Fahliza Ulfa | SAP Software Developer & Enterprise Systems</title>
+  <meta name="description"
+    content="Official portfolio of Devita Fahliza Ulfa - SAP Software Developer at PT Kayu Mebel Indonesia, specializing in SAP ABAP, enterprise systems, and high-performance databases.">
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              300: '#5eead4',
+              400: '#2dd4bf',
+              500: '#14b8a6', // Teal
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+              950: '#042f2e',
+            },
+            accent: {
+              500: '#6366f1', // Indigo
+              600: '#4f46e5',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body
+  class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
+
+  <!-- Ambient Glow Background -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div
+      class="absolute -top-40 left-1/2 -translate-x-1/2 w-[750px] h-[550px] bg-gradient-to-tr from-brand-500/20 to-accent-500/20 blur-[130px] rounded-full opacity-60 dark:opacity-40">
+    </div>
+    <div
+      class="absolute top-1/2 -right-40 w-[550px] h-[550px] bg-gradient-to-bl from-teal-400/10 to-indigo-500/10 blur-[130px] rounded-full opacity-40">
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast"
+    class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 flex items-center gap-3 bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-5 py-3 rounded-xl shadow-2xl text-sm font-medium">
+    <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 dark:text-emerald-600"></i>
+    <span id="toast-message">Email copied to clipboard!</span>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <header
+    class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 backdrop-blur-md bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/80 dark:border-slate-800/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1 text-sm font-medium">
+        <a href="#about"
+          class="nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all"
+          data-i18n="nav_about">About</a>
+        <a href="#education"
+          class="nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all"
+          data-i18n="nav_education">Education</a>
+        <a href="#experience"
+          class="nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all"
+          data-i18n="nav_experience">Experience</a>
+        <a href="#organization"
+          class="nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all"
+          data-i18n="nav_organization">Leadership</a>
+        <a href="#projects"
+          class="nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all"
+          data-i18n="nav_projects">Projects</a>
+        <a href="#skills"
+          class="nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all"
+          data-i18n="nav_skills">Skills</a>
+        <a href="#contact"
+          class="nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all"
+          data-i18n="nav_contact">Contact</a>
+      </nav>
+
+      <!-- Language & Theme Switchers -->
+      <div class="flex items-center gap-2 sm:gap-2.5 ml-auto lg:ml-0">
+
+        <!-- Language Switcher Pill Button -->
+        <button id="lang-toggle"
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 hover:border-brand-500 text-xs font-semibold text-slate-700 dark:text-slate-300 transition-all"
+          title="Switch Language (English / Indonesian)">
+          <span id="lang-flag" class="text-xs">🇬🇧</span>
+          <span id="lang-current-label" class="font-mono">EN</span>
+          <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400"></i>
+        </button>
+
+        <!-- Dark / Light Mode Switcher -->
+        <button id="theme-toggle"
+          class="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          aria-label="Toggle Theme">
+          <i data-lucide="moon" class="w-4 h-4 sm:w-5 sm:h-5 hidden dark:block"></i>
+          <i data-lucide="sun" class="w-4 h-4 sm:w-5 sm:h-5 block dark:hidden"></i>
+        </button>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobile-menu-btn"
+          class="lg:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+          aria-label="Open Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu"
+      class="hidden lg:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 pt-2 pb-4 space-y-1">
+      <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 font-medium"
+        data-i18n="nav_about">About</a>
+      <a href="#education"
+        class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 font-medium"
+        data-i18n="nav_education">Education</a>
+      <a href="#experience"
+        class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 font-medium"
+        data-i18n="nav_experience">Experience</a>
+      <a href="#organization"
+        class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 font-medium"
+        data-i18n="nav_organization">Leadership</a>
+      <a href="#projects"
+        class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 font-medium"
+        data-i18n="nav_projects">Projects</a>
+      <a href="#skills"
+        class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 font-medium"
+        data-i18n="nav_skills">Skills</a>
+      <a href="#contact"
+        class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 font-medium"
+        data-i18n="nav_contact">Contact</a>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-16 pb-20">
+
+    <!-- Profile Introduction Section (Fits Exactly within 1 Viewport Fold) -->
+    <section id="about"
+      class="min-h-[calc(100vh-4rem)] lg:h-[calc(100vh-4rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+      <div class="max-w-6xl mx-auto w-full">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+          <!-- Left Column: Large Circular Profile Photo (5 cols) -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-center">
+            <div class="relative group flex items-center justify-center">
+
+              <!-- Ambient Glow Behind Circular Photo -->
+              <div
+                class="absolute -inset-3 bg-gradient-to-tr from-brand-500/35 via-teal-400/25 to-accent-600/35 rounded-full blur-2xl opacity-75 group-hover:opacity-100 transition duration-700">
+              </div>
+
+              <!-- Main Large Circular Photo Frame -->
+              <div
+                class="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[330px] lg:h-[330px] xl:w-[360px] xl:h-[360px] 2xl:w-[380px] 2xl:h-[380px] rounded-full overflow-hidden border-4 sm:border-[6px] border-white dark:border-slate-800 shadow-2xl bg-white dark:bg-slate-900 ring-4 sm:ring-6 ring-brand-500/20">
+                <img src="profile.jpg"
+                  alt="Devita Fahliza Ulfa - SAP Software Developer"
+                  class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700 ease-out">
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right Column: Profile Introduction (7 cols) -->
+          <div class="lg:col-span-7 space-y-3.5 xl:space-y-4">
+
+            <!-- Name & Roles -->
+            <div class="space-y-2">
+              <h1
+                class="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+                Devita Fahliza Ulfa
+              </h1>
+
+              <!-- Stacked / Pill Roles -->
+              <div class="flex flex-wrap items-center gap-2 font-mono text-xs sm:text-sm">
+                <span
+                  class="px-3 py-1 rounded-lg bg-teal-50 dark:bg-teal-950/70 text-teal-700 dark:text-teal-300 font-semibold border border-teal-200 dark:border-teal-800/80 shadow-sm">SAP
+                  Software Developer</span>
+                <span class="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
+                <span
+                  class="px-3 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 font-semibold border border-indigo-200 dark:border-indigo-800/80 shadow-sm">System
+                  Analyst</span>
+                <span class="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
+                <span
+                  class="px-3 py-1 rounded-lg bg-purple-50 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 font-semibold border border-purple-200 dark:border-purple-800/70">Web
+                  Developer</span>
+              </div>
+            </div>
+
+            <!-- Bio Paragraph -->
+            <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed sm:leading-[1.75] font-normal"
+              data-i18n="about_p1">
+              Information Systems graduate from UPN “Veteran” Jawa Timur. Currently working as a Software Developer at
+              PT Kayu Mebel Indonesia, specializing in SAP-based enterprise systems and modern web applications.
+              Experienced in analyzing business processes, identifying operational needs, and translating complex
+              requirements into structured technology solutions. Capable of managing end-to-end system development, from
+              requirement analysis and system design to implementation, testing, and user training.
+            </p>
+
+            <!-- 2 Badges -->
+            <div class="flex flex-wrap gap-2 text-xs sm:text-sm font-mono">
+              <span
+                class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/80 shadow-sm"
+                data-i18n="about_badge_degree">🎓 S1 Sistem Informasi • UPN Veteran Jatim</span>
+              <span
+                class="px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/70 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800/80 shadow-sm"
+                data-i18n="about_badge_bnsp">🏆 BNSP Certified Programmer</span>
+            </div>
+
+            <!-- 3 Stat Highlight Cards -->
+            <div class="grid grid-cols-3 gap-3 pt-3 border-t border-slate-200/80 dark:border-slate-800/80">
+              <div
+                class="p-3 rounded-2xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-emerald-500/40 transition-all text-center">
+                <div class="text-xl sm:text-2xl font-extrabold font-mono text-emerald-600 dark:text-emerald-400">3.81
+                </div>
+                <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400 mt-0.5"
+                  data-i18n="stat_gpa_label">GPA / IPK</div>
+              </div>
+              <div
+                class="p-3 rounded-2xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-accent-500/40 transition-all text-center">
+                <div class="text-xl sm:text-2xl font-extrabold font-mono text-accent-600 dark:text-accent-400">BNSP
+                </div>
+                <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400 mt-0.5"
+                  data-i18n="stat_cert_label">Certification</div>
+              </div>
+              <div
+                class="p-3 rounded-2xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-brand-500/40 transition-all text-center">
+                <div class="text-base sm:text-lg font-extrabold font-mono text-brand-600 dark:text-brand-400">End-to-End
+                </div>
+                <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400 mt-0.5"
+                  data-i18n="stat_e2e_label">Development</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education & Certification Section -->
+    <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-100/50 dark:bg-slate-900/30">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 font-mono"
+            data-i18n="education_tag">Qualifications</span>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mt-1" data-i18n="education_title">
+            Education & Certifications</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Education Card -->
+          <div
+            class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-brand-500 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800 font-mono"
+                  data-i18n="edu_formal_badge">Formal Education</span>
+                <span class="text-xs text-slate-500 font-mono">Aug 2022 – Jun 2026</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-i18n="edu_univ_name">Universitas
+                Pembangunan Nasional “Veteran” Jawa Timur</h3>
+              <p class="text-sm font-semibold text-brand-600 dark:text-brand-400 mt-1" data-i18n="edu_degree_name">
+                Bachelor of Information Systems (S1 Sistem Informasi)</p>
+
+              <div
+                class="mt-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-medium text-slate-500 dark:text-slate-400"
+                    data-i18n="edu_gpa_label">Cumulative Grade Point Average (GPA):</span>
+                  <span class="text-lg font-bold font-mono text-emerald-600 dark:text-emerald-400">3.81 / 4.00</span>
+                </div>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1" data-i18n="edu_gpa_note">Graduated with
+                  High Academic Distinction (Cum Laude Track), focusing on Enterprise Architecture & Information
+                  Systems.</p>
+              </div>
+            </div>
+
+            <div
+              class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-xs text-slate-500">
+              <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i>
+              <span>Surabaya, East Java, Indonesia</span>
+            </div>
+          </div>
+
+          <!-- Certification Card -->
+          <div
+            class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-accent-500 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 font-mono"
+                  data-i18n="cert_badge">National Certification</span>
+                <span class="text-xs text-slate-500 font-mono">Officially Verified</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-i18n="cert_name">Junior Web Programmer
+              </h3>
+              <p class="text-sm font-semibold text-accent-600 dark:text-accent-400 mt-1" data-i18n="cert_issuer">
+                National Professional Certification Agency (BNSP)</p>
+
+              <div
+                class="mt-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="cert_desc">
+                  Compliant with Indonesian National Work Competency Standards (SKKNI). Formally validates structured
+                  web coding, server-side development, relational database integration, and software security best
+                  practices.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-xs text-slate-500">
+              <i data-lucide="check-check" class="w-4 h-4 text-emerald-500"></i>
+              <span data-i18n="cert_verify">Officially Certified Competency Standard</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 font-mono"
+            data-i18n="experience_tag">Career Trajectory</span>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mt-1"
+            data-i18n="experience_title">Work & Industry Experience</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-2" data-i18n="experience_subtitle">Track record of
+            technical contributions across manufacturing enterprises, healthcare, and academia</p>
+        </div>
+
+        <!-- Experience Timeline (Rendered Dynamically via script.js for full bilingual synchronization) -->
+        <div id="experience-timeline"
+          class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-4 sm:ml-6 space-y-12">
+          <!-- Experience items are dynamically rendered -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Leadership & Community Section -->
+    <section id="organization" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-100/50 dark:bg-slate-900/30">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 font-mono"
+            data-i18n="org_tag">Leadership & Community</span>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mt-1" data-i18n="org_title">
+            Organizational & Committee Leadership</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-2" data-i18n="org_subtitle">Proven leadership in
+            budget allocation, team coordination, and national tech seminar execution</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <div
+            class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-brand-600 dark:text-brand-400 font-mono">HIMASIFO UPN "VETERAN" JAWA
+                TIMUR</span>
+              <span class="text-xs text-slate-500 font-mono">2024 – 2025</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">Head of Entrepreneurship Department</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Planned, directed, and implemented the entrepreneurship work programs. Led department members, coordinated
+              project tasks, supervised the operational budget, and compiled comprehensive activity reports.
+            </p>
+          </div>
+
+          <div
+            class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-brand-600 dark:text-brand-400 font-mono">HIMASIFO UPN "VETERAN" JAWA
+                TIMUR</span>
+              <span class="text-xs text-slate-500 font-mono">2023 – 2024</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">Staff of Entrepreneurship Department
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Served as chief executive for department initiatives, managed departmental cash storage, and maintained
+              meticulous financial transaction records for student enterprise operations.
+            </p>
+          </div>
+
+          <div
+            class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-accent-600 dark:text-accent-400 font-mono">UPN "VETERAN" JAWA
+                TIMUR</span>
+              <span class="text-xs text-slate-500 font-mono">Sep 2023</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">Head of Equipment Division – SITASI 2023
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Led the technical equipment and logistics division for "SITASI", a national technology seminar on
+              Information Systems hosted at UPN Veteran East Java.
+            </p>
+          </div>
+
+          <div
+            class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-accent-600 dark:text-accent-400 font-mono">HIMASIFO & BEM
+                FASILKOM</span>
+              <span class="text-xs text-slate-500 font-mono">2023</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">Committee Head & Division Staff</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Head of Equipment & Logistics for EDISI 2023, Staff of Assessment & Crosscheck for PENSI 2023,
+              Accompanying Senior for Mosaik 2023, and Logistics Staff for LKMM-TD 2023.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Showcase Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 font-mono"
+            data-i18n="projects_tag">Portfolio Showcase</span>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mt-1" data-i18n="projects_title">
+            Featured Engineering Projects</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-2" data-i18n="projects_subtitle">Filter or search
+            through enterprise SAP programs, web systems, mobile apps, and desktop utilities</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="max-w-xl mx-auto mb-8">
+          <div class="relative">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+            <input type="text" id="project-search" data-i18n-placeholder="projects_search_placeholder"
+              placeholder="Search projects by title, technology, or keywords (e.g. ABAP, PostgreSQL, Flutter)..."
+              class="w-full pl-11 pr-4 py-3 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all shadow-sm">
+          </div>
+        </div>
+
+        <!-- Category Filter Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-12" id="project-filters">
+          <button data-filter="all"
+            class="filter-btn active-filter px-4 py-2 rounded-xl text-xs font-semibold transition-all">
+            <span data-i18n="filter_all">All Projects</span> (<span id="count-all">17</span>)
+          </button>
+          <button data-filter="sap" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all">
+            <span data-i18n="filter_sap">SAP ABAP & Enterprise</span> (<span id="count-sap">6</span>)
+          </button>
+          <button data-filter="web" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all">
+            <span data-i18n="filter_web">Web & Database Systems</span> (<span id="count-web">4</span>)
+          </button>
+          <button data-filter="mobile" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all">
+            <span data-i18n="filter_mobile">Mobile & UI/UX</span> (<span id="count-mobile">4</span>)
+          </button>
+          <button data-filter="desktop" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all">
+            <span data-i18n="filter_desktop">Desktop & Games</span> (<span id="count-desktop">3</span>)
+          </button>
+        </div>
+
+        <!-- Dynamic Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+          <!-- Populated by script.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Skills & Technical Competencies Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-100/50 dark:bg-slate-900/30">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 font-mono"
+            data-i18n="skills_tag">Technical Competencies</span>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mt-1" data-i18n="skills_title">
+            Tech Stack & Core Capabilities</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-2" data-i18n="skills_subtitle">Categorized by
+            battle-tested industry domains and production-grade technologies</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- SAP & Enterprise -->
+          <div
+            class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-9 h-9 rounded-xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center">
+                <i data-lucide="server" class="w-5 h-5"></i>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-base" data-i18n="skill_cat_sap_title">SAP &
+                Enterprise ERP</h3>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4" data-i18n="skill_cat_sap_desc">Custom ABAP
+              modules, analytical reporting, and manufacturing process integration.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">SAP ABAP</span>
+              <span class="skill-tag">SAP GUI 770/800</span>
+              <span class="skill-tag">ABAP Dictionary</span>
+              <span class="skill-tag">Custom Reports</span>
+              <span class="skill-tag">ALV Grid</span>
+              <span class="skill-tag">Dialog Programming</span>
+              <span class="skill-tag">Module Pool</span>
+              <span class="skill-tag">SmartForms / SAPscript</span>
+              <span class="skill-tag">RICEF Objects</span>
+              <span class="skill-tag">Transport Request (TR)</span>
+              <span class="skill-tag">ABAP Debugger</span>
+            </div>
+          </div>
+
+          <!-- Web & Backend -->
+          <div
+            class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+                <i data-lucide="code-2" class="w-5 h-5"></i>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-base" data-i18n="skill_cat_web_title">Web &
+                Backend Systems</h3>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4" data-i18n="skill_cat_web_desc">REST APIs,
+              server-side business logic, authentication, and responsive web apps.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">Laravel</span>
+              <span class="skill-tag">JavaScript (ES6+)</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">Vue.js</span>
+              <span class="skill-tag">Nuxt.js</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Express.js</span>
+              <span class="skill-tag">HTML5 & CSS3</span>
+              <span class="skill-tag">REST API Integration</span>
+            </div>
+          </div>
+
+          <!-- Database Engineering -->
+          <div
+            class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                <i data-lucide="database" class="w-5 h-5"></i>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-base" data-i18n="skill_cat_db_title">Database
+                Engineering</h3>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4" data-i18n="skill_cat_db_desc">Relational schema
+              design, high-volume query joins, indexing, and data validation.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">SQL Query Optimization</span>
+              <span class="skill-tag">Database Schema Design</span>
+              <span class="skill-tag">Data Validation</span>
+              <span class="skill-tag">Foreign Keys & Constraints</span>
+              <span class="skill-tag">Data Integrity</span>
+            </div>
+          </div>
+
+          <!-- Mobile & Desktop -->
+          <div
+            class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+                <i data-lucide="smartphone" class="w-5 h-5"></i>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-base" data-i18n="skill_cat_mobile_title">Mobile &
+                Desktop</h3>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4" data-i18n="skill_cat_mobile_desc">Cross-platform
+              mobile apps with Flutter and desktop POS cashier systems.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Flutter</span>
+              <span class="skill-tag">Dart</span>
+              <span class="skill-tag">Java OOP</span>
+              <span class="skill-tag">Java Swing GUI</span>
+              <span class="skill-tag">Visual Basic</span>
+              <span class="skill-tag">Python</span>
+            </div>
+          </div>
+
+          <!-- Development Tools & Workflow -->
+          <div
+            class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-9 h-9 rounded-xl bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 flex items-center justify-center">
+                <i data-lucide="wrench" class="w-5 h-5"></i>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-base" data-i18n="skill_cat_tools_title">Dev Tools
+                & Environment</h3>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4" data-i18n="skill_cat_tools_desc">Collaborative
+              development, version control, IDEs, and UI/UX prototyping.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Git & GitHub</span>
+              <span class="skill-tag">VS Code</span>
+              <span class="skill-tag">Visual Studio</span>
+              <span class="skill-tag">SAP GUI</span>
+              <span class="skill-tag">XAMPP</span>
+              <span class="skill-tag">Figma (UI/UX)</span>
+              <span class="skill-tag">Postman</span>
+              <span class="skill-tag">Microsoft Office</span>
+            </div>
+          </div>
+
+          <!-- Professional Soft Skills & Languages -->
+          <div
+            class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-9 h-9 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                <i data-lucide="award" class="w-5 h-5"></i>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-base" data-i18n="skill_cat_soft_title">
+                Professional & Soft Skills</h3>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4" data-i18n="skill_cat_soft_desc">Interpersonal
+              communication, analytical thinking, and team leadership.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Problem Solving</span>
+              <span class="skill-tag">Analytical Thinking</span>
+              <span class="skill-tag">Critical Thinking</span>
+              <span class="skill-tag">Team Collaboration</span>
+              <span class="skill-tag">Technical Communication</span>
+              <span class="skill-tag">Time Management</span>
+              <span class="skill-tag font-medium">English (Professional)</span>
+              <span class="skill-tag font-medium">Bahasa Indonesia (Native)</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Hire Me Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div
+          class="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white relative overflow-hidden shadow-2xl border border-slate-800">
+
+          <!-- Decorative Glows -->
+          <div
+            class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-500/20 blur-3xl rounded-full pointer-events-none">
+          </div>
+          <div class="absolute -left-20 -top-20 w-80 h-80 bg-accent-500/20 blur-3xl rounded-full pointer-events-none">
+          </div>
+
+          <div class="relative z-10 text-center max-w-2xl mx-auto">
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-300 text-xs font-semibold mb-4">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              <span data-i18n="contact_tag">Let's Connect</span>
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4" data-i18n="contact_title">Interested in
+              Working Together or Discussing Opportunities?</h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8" data-i18n="contact_desc">
+              I am always open to discussing enterprise software engineering, SAP ABAP development, backend systems, or
+              innovative technology projects. Feel free to reach out directly via email or WhatsApp.
+            </p>
+
+            <!-- Contact Buttons Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-left mb-8">
+
+              <div
+                class="p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all flex items-center justify-between group">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-brand-500/20 flex items-center justify-center text-brand-400">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-[11px] text-slate-400 uppercase tracking-wider font-mono"
+                      data-i18n="contact_email_label">Direct Email</div>
+                    <a href="mailto:devitafahlizaulfa@gmail.com"
+                      class="text-xs sm:text-sm font-semibold text-white hover:text-brand-300 transition-colors">devitafahlizaulfa@gmail.com</a>
+                  </div>
+                </div>
+                <button onclick="copyToClipboard('devitafahlizaulfa@gmail.com', 'email')"
+                  class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/10" title="Copy Email">
+                  <i data-lucide="copy" class="w-4 h-4"></i>
+                </button>
+              </div>
+
+              <div
+                class="p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all flex items-center justify-between group">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-[11px] text-slate-400 uppercase tracking-wider font-mono"
+                      data-i18n="contact_phone_label">Phone & WhatsApp</div>
+                    <a href="https://wa.me/6281355663905" target="_blank" rel="noopener noreferrer"
+                      class="text-xs sm:text-sm font-semibold text-white hover:text-emerald-300 transition-colors">+62
+                      813-5566-3905</a>
+                  </div>
+                </div>
+                <button onclick="copyToClipboard('+6281355663905', 'phone')"
+                  class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/10" title="Copy Phone Number">
+                  <i data-lucide="copy" class="w-4 h-4"></i>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Quick Action Links -->
+            <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-medium">
+              <a href="https://www.linkedin.com/in/devita-fahliza-ulfa-6687472a9/" target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors">
+                <i data-lucide="linkedin" class="w-4 h-4 text-sky-400"></i>
+                <span data-i18n="contact_linkedin_link">LinkedIn Profile</span>
+              </a>
+              <span class="text-slate-600">•</span>
+              <a href="https://github.com/DevitaFahliza" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors">
+                <i data-lucide="github" class="w-4 h-4 text-slate-200"></i>
+                <span data-i18n="contact_github_link">GitHub Repository</span>
+              </a>
+              <span class="text-slate-600">•</span>
+              <a href="https://devitafahlizaulfa.blogspot.com/" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors">
+                <i data-lucide="globe" class="w-4 h-4 text-amber-400"></i>
+                <span data-i18n="contact_blog_link">Personal Blog</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Project Details Modal -->
+  <div id="project-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm transition-all duration-300 opacity-0 pointer-events-none">
+    <div id="modal-container"
+      class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl transform scale-95 transition-all duration-300 relative">
+      <!-- Close Button -->
+      <button id="modal-close"
+        class="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+        aria-label="Close Modal">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Modal Category & Title -->
+      <div id="modal-badge"
+        class="inline-block px-3 py-1 rounded-full text-xs font-mono font-semibold mb-3 bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300">
+        Category
+      </div>
+      <h3 id="modal-title" class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Project Title</h3>
+      <p id="modal-subtitle" class="text-xs text-brand-600 dark:text-brand-400 font-mono mb-6">Sub-title / Identifier
+      </p>
+
+      <!-- Modal Body Content -->
+      <div class="space-y-6 text-sm text-slate-600 dark:text-slate-300">
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono mb-2"
+            data-i18n="modal_overview_title">Project Overview</h4>
+          <p id="modal-desc" class="leading-relaxed">Full comprehensive description.</p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono mb-2"
+            data-i18n="modal_features_title">Core Responsibilities & Technical Highlights</h4>
+          <ul id="modal-features" class="space-y-2 list-disc list-outside ml-4 text-xs sm:text-sm leading-relaxed">
+            <!-- Dynamic bullets -->
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono mb-2"
+            data-i18n="modal_tech_title">Technologies & Tools Used</h4>
+          <div id="modal-tech" class="flex flex-wrap gap-2">
+            <!-- Tech badges -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="mt-8 pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+        <button id="modal-close-btn"
+          class="px-5 py-2.5 rounded-xl bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 font-semibold text-xs hover:opacity-90 transition-opacity"
+          data-i18n="modal_close">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer
+    class="border-t border-slate-200/80 dark:border-slate-800/80 py-8 px-4 sm:px-6 text-center text-xs text-slate-500 dark:text-slate-400">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-brand-500"></span>
+        <span class="font-medium text-slate-700 dark:text-slate-300">Devita Fahliza Ulfa</span>
+        <span>• Professional Software Developer Portfolio</span>
+      </div>
+      <div>
+        <span>Built with semantic HTML5, Tailwind CSS, & modern JavaScript.</span>
+      </div>
+      <div class="font-mono text-[11px]">
+        Surabaya, East Java © 2026
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+
+</html>
