@@ -192,6 +192,18 @@
                   class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700 ease-out">
               </div>
 
+              <!-- Floating Active SAP Developer Status Badge -->
+              <div class="absolute -bottom-3 sm:-bottom-4 left-1/2 -translate-x-1/2 z-20">
+                <div
+                  class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/95 dark:bg-slate-900/95 text-white border border-teal-500/40 shadow-xl backdrop-blur-md hover:border-teal-400 hover:scale-105 transition-all cursor-default select-none group/badge">
+                  <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 status-beacon-pulse"></span>
+                  </span>
+                  <span class="text-xs font-mono font-bold tracking-tight text-slate-100 whitespace-nowrap" data-i18n="avatar_status_badge">Active SAP Developer</span>
+                </div>
+              </div>
+
             </div>
           </div>
 
@@ -244,21 +256,21 @@
             <!-- 3 Stat Highlight Cards -->
             <div class="grid grid-cols-3 gap-3 pt-3 border-t border-slate-200/80 dark:border-slate-800/80">
               <div
-                class="p-3 rounded-2xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-emerald-500/40 transition-all text-center">
-                <div class="text-xl sm:text-2xl font-extrabold font-mono text-emerald-600 dark:text-emerald-400">3.81
+                class="stat-card p-3 rounded-2xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-emerald-500/40 hover:-translate-y-1 transition-all text-center">
+                <div id="stat-gpa-val" class="text-xl sm:text-2xl font-extrabold font-mono text-emerald-600 dark:text-emerald-400">3.81
                 </div>
                 <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400 mt-0.5"
                   data-i18n="stat_gpa_label">GPA / IPK</div>
               </div>
               <div
-                class="p-3 rounded-2xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-accent-500/40 transition-all text-center">
+                class="stat-card p-3 rounded-2xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-accent-500/40 hover:-translate-y-1 transition-all text-center">
                 <div class="text-xl sm:text-2xl font-extrabold font-mono text-accent-600 dark:text-accent-400">BNSP
                 </div>
                 <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400 mt-0.5"
                   data-i18n="stat_cert_label">Certification</div>
               </div>
               <div
-                class="p-3 rounded-2xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-brand-500/40 transition-all text-center">
+                class="stat-card p-3 rounded-2xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-brand-500/40 hover:-translate-y-1 transition-all text-center">
                 <div class="text-base sm:text-lg font-extrabold font-mono text-brand-600 dark:text-brand-400">End-to-End
                 </div>
                 <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400 mt-0.5"
@@ -465,13 +477,17 @@
             through enterprise SAP programs, web systems, mobile apps, and desktop utilities</p>
         </div>
 
-        <!-- Search Bar -->
+        <!-- Search Bar with Keyboard Shortcut Hint -->
         <div class="max-w-xl mx-auto mb-8">
           <div class="relative">
             <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
             <input type="text" id="project-search" data-i18n-placeholder="projects_search_placeholder"
               placeholder="Search projects by title, technology, or keywords (e.g. ABAP, PostgreSQL, Flutter)..."
-              class="w-full pl-11 pr-4 py-3 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all shadow-sm">
+              class="w-full pl-11 pr-20 py-3 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all shadow-sm">
+            <div class="absolute right-3.5 top-1/2 -translate-y-1/2 hidden sm:flex items-center gap-1.5 pointer-events-none select-none">
+              <span class="text-[10px] text-slate-400 font-mono">Press</span>
+              <kbd class="px-1.5 py-0.5 text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded shadow-xs">/</kbd>
+            </div>
           </div>
         </div>
 
@@ -846,6 +862,15 @@
       </div>
     </div>
   </footer>
+
+  <!-- Subtle Click Spark Canvas for interactive feedback -->
+  <canvas id="click-spark-canvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" aria-label="Back to Top"
+    class="fixed bottom-6 right-6 z-40 p-3 rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 shadow-xl text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:border-brand-500/50 hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 pointer-events-none translate-y-4">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
 
   <!-- Scripts -->
   <script src="script.js"></script>

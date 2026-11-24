@@ -16,6 +16,7 @@ const translations = {
 
     // Hero & Profile
     hero_status: "Currently Employed",
+    avatar_status_badge: "Active SAP Developer",
     hero_title_pre: "Architecting Robust Enterprise Solutions with",
     hero_title_highlight: "SAP ABAP & Full-Stack Systems",
     hero_subtitle: "Software Developer at PT Kayu Mebel Indonesia, specializing in SAP-based enterprise systems and modern web application development.",
@@ -146,6 +147,7 @@ const translations = {
     // Hero
     // Hero & Profile
     hero_status: "Currently Employed",
+    avatar_status_badge: "Active SAP Developer",
     hero_title_pre: "Membangun Solusi Enterprise yang Efektif dengan",
     hero_title_highlight: "SAP ABAP & Full-Stack Web",
     hero_subtitle: "Software Developer di PT Kayu Mebel Indonesia, berspesialisasi dalam sistem enterprise berbasis SAP dan pengembangan aplikasi web modern.",
@@ -848,6 +850,13 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initNavScrollSpy();
   initModalListeners();
+  initSpotlightCards();
+  initSkillFilterIntegration();
+  initClickSpark();
+  initKeyboardShortcuts();
+  initBackToTop();
+  initScrollReveal();
+  initStatCounter();
   lucide.createIcons();
 });
 
@@ -1085,7 +1094,7 @@ function renderProjects() {
 
   list.forEach(project => {
     const card = document.createElement("div");
-    card.className = "project-card p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between hover:border-brand-500/60 dark:hover:border-brand-500/60 transition-all";
+    card.className = "project-card spotlight-card p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between hover:border-brand-500/60 dark:hover:border-brand-500/60 transition-all";
 
     // Category Badge Styling
     let badgeClass = "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800";
@@ -1147,6 +1156,7 @@ function renderProjects() {
     grid.appendChild(card);
   });
 
+  initSpotlightCards();
   lucide.createIcons();
 }
 
@@ -1283,4 +1293,237 @@ function initMobileMenu() {
       menu.classList.add("hidden");
     });
   });
+}
+
+// 14. CARD SPOTLIGHT EFFECT (Linear / Vercel style radial glow that tracks mouse)
+function initSpotlightCards() {
+  const cards = document.querySelectorAll(".spotlight-card, .project-card, #education .p-6, #organization .p-6, #skills .p-6");
+  cards.forEach(card => {
+    if (!card.classList.contains("spotlight-card")) {
+      card.classList.add("spotlight-card");
+    }
+    card.removeEventListener("mousemove", handleSpotlight);
+    card.addEventListener("mousemove", handleSpotlight);
+  });
+}
+
+function handleSpotlight(e) {
+  const rect = this.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  this.style.setProperty("--mouse-x", `${x}px`);
+  this.style.setProperty("--mouse-y", `${y}px`);
+}
+
+// 15. SKILL TAG CLICK TO FILTER PROJECTS
+function initSkillFilterIntegration() {
+  document.addEventListener("click", (e) => {
+    const tag = e.target.closest(".skill-tag");
+    if (!tag) return;
+    if (tag.closest("#project-modal")) return;
+
+    const skill = tag.textContent.trim();
+    if (skill.includes("English") || skill.includes("Bahasa")) return;
+
+    const searchInput = document.getElementById("project-search");
+    const projectsSection = document.getElementById("projects");
+
+    if (searchInput && projectsSection) {
+      currentCategory = "all";
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active-filter"));
+      const allBtn = document.querySelector('[data-filter="all"]');
+      if (allBtn) allBtn.classList.add("active-filter");
+
+      searchInput.value = skill;
+      searchQuery = skill.toLowerCase();
+      renderProjects();
+
+      projectsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      const isEn = currentLang === "en";
+      showToast(isEn ? `Showing projects matching "${skill}"` : `Menampilkan proyek dengan teknologi "${skill}"`);
+    }
+  });
+}
+
+// 16. SUBTLE TACTILE CLICK SPARK EFFECT (Canvas-based)
+function initClickSpark() {
+  const canvas = document.getElementById("click-spark-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  let sparks = [];
+  let animId = null;
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  class Spark {
+    constructor(x, y, color) {
+      this.x = x;
+      this.y = y;
+      this.color = color;
+      this.angle = Math.random() * Math.PI * 2;
+      this.speed = Math.random() * 2.8 + 1.2;
+      this.radius = Math.random() * 1.8 + 0.9;
+      this.alpha = 1;
+      this.decay = Math.random() * 0.04 + 0.03;
+    }
+    update() {
+      this.x += Math.cos(this.angle) * this.speed;
+      this.y += Math.sin(this.angle) * this.speed;
+      this.speed *= 0.94;
+      this.alpha -= this.decay;
+    }
+    draw() {
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, this.alpha);
+      ctx.fillStyle = this.color;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  function renderLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    sparks = sparks.filter(s => s.alpha > 0);
+    sparks.forEach(s => {
+      s.update();
+      s.draw();
+    });
+    if (sparks.length > 0) {
+      animId = requestAnimationFrame(renderLoop);
+    } else {
+      animId = null;
+    }
+  }
+
+  document.addEventListener("pointerdown", (e) => {
+    // Only fire on interactive controls to maintain subtlety and elegant feel
+    const interactive = e.target.closest("button, a, .project-card, .skill-tag, .stat-card, input");
+    if (!interactive) return;
+
+    const isDark = document.documentElement.classList.contains("dark");
+    const palette = isDark 
+      ? ["#2dd4bf", "#5eead4", "#818cf8", "#38bdf8", "#34d399"] 
+      : ["#0d9488", "#14b8a6", "#6366f1", "#0284c7", "#10b981"];
+
+    const count = 7;
+    for (let i = 0; i < count; i++) {
+      const color = palette[Math.floor(Math.random() * palette.length)];
+      sparks.push(new Spark(e.clientX, e.clientY, color));
+    }
+    if (!animId) {
+      animId = requestAnimationFrame(renderLoop);
+    }
+  });
+}
+
+// 17. DEVELOPER KEYBOARD SHORTCUTS
+function initKeyboardShortcuts() {
+  document.addEventListener("keydown", (e) => {
+    const tag = document.activeElement ? document.activeElement.tagName.toLowerCase() : "";
+    if (tag === "input" || tag === "textarea") return;
+
+    // Press '/' to jump to project search
+    if (e.key === "/") {
+      e.preventDefault();
+      const input = document.getElementById("project-search");
+      if (input) {
+        input.focus();
+        input.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+
+    // Press 'T' to toggle theme
+    if (e.key.toLowerCase() === "t") {
+      const themeToggle = document.getElementById("theme-toggle");
+      if (themeToggle) themeToggle.click();
+    }
+
+    // Press 'L' to toggle language
+    if (e.key.toLowerCase() === "l") {
+      const langToggle = document.getElementById("lang-toggle");
+      if (langToggle) langToggle.click();
+    }
+  });
+}
+
+// 18. FLOATING BACK TO TOP BUTTON
+function initBackToTop() {
+  const btn = document.getElementById("back-to-top");
+  if (!btn) return;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+      btn.classList.remove("opacity-0", "pointer-events-none", "translate-y-4");
+      btn.classList.add("opacity-100", "pointer-events-auto", "translate-y-0");
+    } else {
+      btn.classList.add("opacity-0", "pointer-events-none", "translate-y-4");
+      btn.classList.remove("opacity-100", "pointer-events-auto", "translate-y-0");
+    }
+  }, { passive: true });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+// 19. SCROLL REVEAL (SUBTLE STAGGERED FADE-UP)
+function initScrollReveal() {
+  const elements = document.querySelectorAll("#education .p-6, #experience-timeline > div, #organization .p-6, #skills .p-6, #projects-grid > div");
+  elements.forEach(el => el.classList.add("reveal-item"));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-revealed");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    rootMargin: "0px 0px -40px 0px",
+    threshold: 0.08
+  });
+
+  elements.forEach(el => observer.observe(el));
+}
+
+// 20. STAT COUNTER ANIMATION
+function initStatCounter() {
+  const gpaEl = document.getElementById("stat-gpa-val");
+  if (!gpaEl) return;
+
+  let animated = false;
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !animated) {
+      animated = true;
+      const target = 3.81;
+      const duration = 1200;
+      const start = performance.now();
+
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const val = (ease * target).toFixed(2);
+        gpaEl.textContent = val;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          gpaEl.textContent = "3.81";
+        }
+      }
+      requestAnimationFrame(step);
+      observer.disconnect();
+    }
+  }, { threshold: 0.5 });
+
+  observer.observe(gpaEl);
 }

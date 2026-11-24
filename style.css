@@ -50,13 +50,20 @@
   background-color: #f1f5f9;
   color: #334155;
   border: 1px solid rgba(226, 232, 240, 0.9);
+  cursor: pointer;
+  user-select: none;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .skill-tag:hover {
-  transform: translateY(-1px);
+  transform: translateY(-1.5px);
   border-color: #0d9488;
   color: #0d9488;
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.15);
+}
+
+.skill-tag:active {
+  transform: scale(0.96);
 }
 
 .dark .skill-tag {
@@ -68,7 +75,8 @@
 .dark .skill-tag:hover {
   border-color: #2dd4bf;
   color: #2dd4bf;
-  background-color: rgba(19, 78, 74, 0.2);
+  background-color: rgba(19, 78, 74, 0.25);
+  box-shadow: 0 2px 10px rgba(45, 212, 191, 0.2);
 }
 
 /* Filter Buttons */
@@ -108,13 +116,82 @@
   box-shadow: 0 4px 14px rgba(20, 184, 166, 0.35);
 }
 
-/* Project Card Hover Animation */
+/* Project Card Hover Animation & Spotlight */
 .project-card {
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
+}
+
+/* Card Spotlight Glow Effect (Linear / Vercel style) */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: radial-gradient(
+    380px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+    rgba(20, 184, 166, 0.4),
+    transparent 65%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 2;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+.dark .spotlight-card::before {
+  background: radial-gradient(
+    380px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+    rgba(45, 212, 191, 0.45),
+    transparent 65%
+  );
+}
+
+/* Scroll Reveal Animation */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-item.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating Status Beacon Animation */
+@keyframes beaconPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.status-beacon-pulse {
+  animation: beaconPulse 2.2s infinite;
 }
 
 /* Modal Open / Close Transition */
