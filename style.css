@@ -194,6 +194,66 @@
   animation: beaconPulse 2.2s infinite;
 }
 
+/* Hero Mode Tabs */
+.hero-mode-tab {
+  background-color: transparent;
+  color: #64748b;
+  border: 1px solid transparent;
+}
+
+.hero-mode-tab:hover {
+  color: #0d9488;
+}
+
+.hero-mode-tab.active-hero-tab {
+  background-color: #f0fdfa;
+  color: #0f766e;
+  border-color: #99f6e4;
+  box-shadow: 0 1px 4px rgba(13, 148, 136, 0.1);
+}
+
+.dark .hero-mode-tab {
+  color: #94a3b8;
+}
+
+.dark .hero-mode-tab:hover {
+  color: #2dd4bf;
+}
+
+.dark .hero-mode-tab.active-hero-tab {
+  background-color: rgba(19, 78, 74, 0.4);
+  color: #2dd4bf;
+  border-color: rgba(45, 212, 191, 0.4);
+  box-shadow: 0 1px 6px rgba(45, 212, 191, 0.15);
+}
+
+/* Ticker Marquee Animation */
+@keyframes tickerLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: tickerLoop 30s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* Ask Devita Assistant Drawer */
+#ask-devita-drawer.active {
+  display: flex !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+#ask-devita-drawer.active #ask-devita-container {
+  transform: translateY(0) !important;
+}
+
 /* Modal Open / Close Transition */
 #project-modal.active {
   display: flex !important;

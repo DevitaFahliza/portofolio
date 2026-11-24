@@ -114,6 +114,14 @@
       <!-- Language & Theme Switchers -->
       <div class="flex items-center gap-2 sm:gap-2.5 ml-auto lg:ml-0">
 
+        <!-- Download Resume Button in Navbar -->
+        <a href="mailto:devitafahlizaulfa@gmail.com?subject=Inquiry%20Resume%20-%20Devita%20Fahliza%20Ulfa"
+          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-brand-500/30 bg-brand-50 hover:bg-brand-100 dark:bg-brand-950/60 dark:hover:bg-brand-900/60 text-brand-700 dark:text-brand-300 text-xs font-semibold transition-all hover:scale-105 active:scale-95"
+          title="Request Official Resume / CV">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+          <span data-i18n="nav_resume">Resume</span>
+        </a>
+
         <!-- Language Switcher Pill Button -->
         <button id="lang-toggle"
           class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 hover:border-brand-500 text-xs font-semibold text-slate-700 dark:text-slate-300 transition-all"
@@ -231,26 +239,75 @@
                   class="px-3 py-1 rounded-lg bg-purple-50 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 font-semibold border border-purple-200 dark:border-purple-800/70">Web
                   Developer</span>
               </div>
+
+              <!-- Dynamic Typing Focus Line -->
+              <div class="h-6 flex items-center text-xs sm:text-sm font-mono pt-1 text-slate-600 dark:text-slate-300">
+                <span class="text-slate-400 dark:text-slate-500 mr-1.5" data-i18n="hero_typing_prefix">Focus:</span>
+                <span id="hero-typing-text" class="text-brand-600 dark:text-brand-400 font-bold border-b border-brand-500/40 pb-0.5">SAP ABAP Enterprise Systems</span>
+                <span class="typing-cursor text-brand-500 font-extrabold animate-pulse ml-0.5">|</span>
+              </div>
             </div>
 
-            <!-- Bio Paragraph -->
-            <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed sm:leading-[1.75] font-normal"
-              data-i18n="about_p1">
-              Information Systems graduate from UPN “Veteran” Jawa Timur. Currently working as a Software Developer at
-              PT Kayu Mebel Indonesia, specializing in SAP-based enterprise systems and modern web applications.
-              Experienced in analyzing business processes, identifying operational needs, and translating complex
-              requirements into structured technology solutions. Capable of managing end-to-end system development, from
-              requirement analysis and system design to implementation, testing, and user training.
-            </p>
+            <!-- View Mode Switcher Tabs (Bio vs Terminal) -->
+            <div class="flex items-center gap-2 pt-1">
+              <button id="hero-tab-bio" class="hero-mode-tab active-hero-tab px-3 py-1 rounded-lg text-xs font-semibold font-mono flex items-center gap-1.5 transition-all">
+                <i data-lucide="user" class="w-3.5 h-3.5"></i>
+                <span data-i18n="hero_tab_bio">Bio Overview</span>
+              </button>
+              <button id="hero-tab-terminal" class="hero-mode-tab px-3 py-1 rounded-lg text-xs font-semibold font-mono flex items-center gap-1.5 transition-all">
+                <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+                <span data-i18n="hero_tab_terminal">Dev Terminal</span>
+              </button>
+            </div>
 
-            <!-- 2 Badges -->
-            <div class="flex flex-wrap gap-2 text-xs sm:text-sm font-mono">
+            <!-- View 1: Bio Paragraph -->
+            <div id="hero-view-bio">
+              <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed sm:leading-[1.75] font-normal"
+                data-i18n="about_p1">
+                Information Systems graduate from UPN “Veteran” Jawa Timur. Currently working as a Software Developer at
+                PT Kayu Mebel Indonesia, specializing in SAP-based enterprise systems and modern web applications.
+                Experienced in analyzing business processes, identifying operational needs, and translating complex
+                requirements into structured technology solutions. Capable of managing end-to-end system development, from
+                requirement analysis and system design to implementation, testing, and user training.
+              </p>
+            </div>
+
+            <!-- View 2: Dev Terminal (Toggled via JS) -->
+            <div id="hero-view-terminal" class="hidden">
+              <div class="rounded-2xl overflow-hidden bg-slate-900 border border-slate-700/80 shadow-xl font-mono text-xs">
+                <div class="bg-slate-800/90 px-3.5 py-2 flex items-center justify-between border-b border-slate-700/80">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>
+                  </div>
+                  <span class="text-[11px] text-slate-400">devita@enterprise-sys:~</span>
+                  <span class="text-[10px] text-teal-400 font-bold">bash v5.2</span>
+                </div>
+                <div class="p-3.5 space-y-1.5 text-slate-200 leading-relaxed">
+                  <p><span class="text-teal-400 font-bold">devita@sys:~$</span> <span class="text-amber-300">whoami</span></p>
+                  <p class="text-slate-400 pl-3">↳ Devita Fahliza Ulfa · SAP Software Developer & Enterprise Architect</p>
+                  <p><span class="text-teal-400 font-bold">devita@sys:~$</span> <span class="text-amber-300">cat current_spec.json</span></p>
+                  <p class="text-slate-300 pl-3">{ "company": <span class="text-emerald-300">"PT Kayu Mebel Indonesia"</span>, "erp": <span class="text-teal-300">"SAP ABAP / RICEF"</span>, "db": <span class="text-indigo-300">"PostgreSQL"</span>, "status": <span class="text-emerald-400 font-bold">"Ready For Opportunities"</span> }</p>
+                  <p><span class="text-teal-400 font-bold">devita@sys:~$</span> <span class="text-emerald-400 font-semibold animate-pulse">_</span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Badges & Resume CTA Button -->
+            <div class="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-mono">
               <span
                 class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/80 shadow-sm"
                 data-i18n="about_badge_degree">🎓 S1 Sistem Informasi • UPN Veteran Jatim</span>
               <span
                 class="px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/70 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800/80 shadow-sm"
                 data-i18n="about_badge_bnsp">🏆 BNSP Certified Programmer</span>
+              <a href="mailto:devitafahlizaulfa@gmail.com?subject=Inquiry%20Resume%20-%20Devita%20Fahliza%20Ulfa"
+                class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-semibold text-xs transition-all shadow-sm hover:shadow-md hover:scale-105 active:scale-95"
+                title="Request Official Resume">
+                <i data-lucide="file-down" class="w-3.5 h-3.5"></i>
+                <span data-i18n="btn_resume">Resume / CV</span>
+              </a>
             </div>
 
             <!-- 3 Stat Highlight Cards -->
@@ -282,6 +339,35 @@
 
         </div>
 
+      </div>
+    </section>
+
+    <!-- Infinite Tech Stack Marquee Ticker -->
+    <section class="py-3 border-y border-slate-200/80 dark:border-slate-800/80 bg-white/40 dark:bg-slate-900/40 backdrop-blur-sm overflow-hidden relative select-none">
+      <div class="ticker-container flex">
+        <div class="ticker-track flex items-center gap-8 whitespace-nowrap text-xs font-mono font-semibold text-slate-600 dark:text-slate-300">
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-teal-500"></span>SAP ABAP (RICEF)</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-indigo-500"></span>PostgreSQL</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>ALV Grid & Dialog Logic</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-purple-500"></span>Healthcare SIMRS</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-teal-500"></span>SmartForms & SAPscript</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500"></span>Laravel & PHP</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-rose-500"></span>Flutter & Dart</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-500"></span>MySQL & Index Tuning</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-teal-500"></span>Transport Request (TR)</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span>RESTful APIs</span>
+          <!-- Duplicate set for continuous infinite loop -->
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-teal-500"></span>SAP ABAP (RICEF)</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-indigo-500"></span>PostgreSQL</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>ALV Grid & Dialog Logic</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-purple-500"></span>Healthcare SIMRS</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-teal-500"></span>SmartForms & SAPscript</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500"></span>Laravel & PHP</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-rose-500"></span>Flutter & Dart</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-500"></span>MySQL & Index Tuning</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-teal-500"></span>Transport Request (TR)</span>
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span>RESTful APIs</span>
+        </div>
       </div>
     </section>
 
@@ -320,7 +406,7 @@
                   <span class="text-lg font-bold font-mono text-emerald-600 dark:text-emerald-400">3.81 / 4.00</span>
                 </div>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1" data-i18n="edu_gpa_note">Graduated with
-                  High Academic Distinction (Cum Laude Track), focusing on Enterprise Architecture & Information
+                  High Academic Distinction, focusing on Enterprise Architecture & Information
                   Systems.</p>
               </div>
             </div>
@@ -865,6 +951,60 @@
 
   <!-- Subtle Click Spark Canvas for interactive feedback -->
   <canvas id="click-spark-canvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
+
+  <!-- Floating Ask Devita Assistant Trigger Button -->
+  <button id="ask-devita-btn" class="fixed bottom-6 right-20 sm:right-24 z-40 px-3.5 sm:px-4 py-2.5 rounded-full bg-slate-900 text-white dark:bg-brand-500 dark:text-slate-950 shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2 text-xs font-bold border border-teal-500/40" title="Ask Devita AI Assistant">
+    <span class="relative flex h-2 w-2">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+    </span>
+    <i data-lucide="sparkles" class="w-4 h-4"></i>
+    <span data-i18n="ask_devita_btn">Ask Devita</span>
+  </button>
+
+  <!-- Interactive Assistant Modal Drawer -->
+  <div id="ask-devita-drawer" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-end sm:justify-end sm:p-6 p-3 bg-slate-950/60 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none">
+    <div id="ask-devita-container" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl w-full sm:max-w-md max-h-[85vh] sm:max-h-[580px] flex flex-col shadow-2xl overflow-hidden transform translate-y-8 sm:translate-y-4 transition-transform duration-300">
+      
+      <!-- Drawer Header -->
+      <div class="px-5 py-3.5 border-b border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between bg-slate-50/80 dark:bg-slate-950/80">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-brand-500/20 text-brand-600 dark:text-brand-400 flex items-center justify-center">
+            <i data-lucide="bot" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white leading-none">Devita's Portfolio Assistant</h3>
+            <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-medium flex items-center gap-1 mt-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span> Online · Quick Answers
+            </span>
+          </div>
+        </div>
+        <button id="ask-devita-close" class="p-1.5 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Chat History Stream -->
+      <div id="ask-devita-chat" class="p-4 overflow-y-auto space-y-3.5 flex-1 text-xs sm:text-sm">
+        <!-- Initial Greeting Message -->
+        <div class="flex items-start gap-2.5">
+          <div class="w-7 h-7 rounded-full bg-brand-500 text-white flex-shrink-0 flex items-center justify-center text-xs font-bold font-mono">D</div>
+          <div class="p-3.5 rounded-2xl rounded-tl-sm bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 leading-relaxed max-w-[88%]">
+            <p data-i18n="chat_greeting">Hello! 👋 I am Devita's interactive portfolio assistant. Tap any question below to explore her SAP ABAP capabilities, projects, work experience, or credentials:</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Question Chips -->
+      <div class="p-3 border-t border-slate-200/80 dark:border-slate-800/80 bg-slate-50/70 dark:bg-slate-950/70">
+        <div class="text-[11px] font-mono text-slate-400 mb-2 font-medium" data-i18n="chat_chips_title">Select a topic:</div>
+        <div class="flex flex-wrap gap-1.5" id="chat-question-chips">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <!-- Floating Back to Top Button -->
   <button id="back-to-top" aria-label="Back to Top"

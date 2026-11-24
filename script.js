@@ -13,6 +13,14 @@ const translations = {
     nav_education: "Education",
     nav_contact: "Contact",
     nav_cta: "Get in Touch",
+    nav_resume: "Resume",
+    btn_resume: "Resume / CV",
+    hero_typing_prefix: "Focus:",
+    hero_tab_bio: "Bio Overview",
+    hero_tab_terminal: "Dev Terminal",
+    ask_devita_btn: "Ask Devita",
+    chat_greeting: "Hello! 👋 I am Devita's interactive portfolio assistant. Tap any topic below to explore her technical capabilities, SAP ABAP work, projects, or credentials:",
+    chat_chips_title: "Select a topic:",
 
     // Hero & Profile
     hero_status: "Currently Employed",
@@ -48,7 +56,7 @@ const translations = {
     fact_degree: "Degree",
     fact_degree_val: "B.S. in Information Systems",
     fact_gpa: "GPA",
-    fact_gpa_val: "3.81 / 4.00 (Cum Laude Track)",
+    fact_gpa_val: "3.81 / 4.00",
     fact_current_role: "Current Position",
     fact_current_role_val: "SAP Software Developer",
     fact_company: "Company",
@@ -111,7 +119,7 @@ const translations = {
     edu_univ_name: "Universitas Pembangunan Nasional “Veteran” Jawa Timur",
     edu_degree_name: "Bachelor of Information Systems (S1 Sistem Informasi)",
     edu_gpa_label: "Cumulative Grade Point Average (GPA):",
-    edu_gpa_note: "Graduated with High Academic Distinction (Cum Laude Track), focusing on Enterprise Architecture & Information Systems.",
+    edu_gpa_note: "Graduated with High Academic Distinction, focusing on Enterprise Architecture & Information Systems.",
     cert_badge: "National Certification",
     cert_name: "Junior Web Programmer",
     cert_issuer: "National Professional Certification Agency (BNSP)",
@@ -143,6 +151,14 @@ const translations = {
     nav_education: "Pendidikan",
     nav_contact: "Kontak",
     nav_cta: "Hubungi Saya",
+    nav_resume: "Resume",
+    btn_resume: "Resume / CV",
+    hero_typing_prefix: "Fokus:",
+    hero_tab_bio: "Ringkasan Bio",
+    hero_tab_terminal: "Dev Terminal",
+    ask_devita_btn: "Tanya Devita",
+    chat_greeting: "Halo! 👋 Saya asisten interaktif portofolio Devita. Pilih topik di bawah untuk melihat keahlian SAP ABAP, pengalaman kerja, proyek, atau kualifikasinya:",
+    chat_chips_title: "Pilih topik pertanyaan:",
 
     // Hero
     // Hero & Profile
@@ -179,7 +195,7 @@ const translations = {
     fact_degree: "Gelar",
     fact_degree_val: "Sarjana Sistem Informasi (S.Kom)",
     fact_gpa: "IPK",
-    fact_gpa_val: "3.81 / 4.00 (Cum Laude Track)",
+    fact_gpa_val: "3.81 / 4.00",
     fact_current_role: "Posisi Saat Ini",
     fact_current_role_val: "SAP Software Developer",
     fact_company: "Perusahaan",
@@ -242,7 +258,7 @@ const translations = {
     edu_univ_name: "Universitas Pembangunan Nasional “Veteran” Jawa Timur",
     edu_degree_name: "S1 Sistem Informasi (Bachelor of Information Systems)",
     edu_gpa_label: "Indeks Prestasi Kumulatif (IPK):",
-    edu_gpa_note: "Predikat Sangat Memuaskan (Cum Laude Track) dengan fokus pada Arsitektur Enterprise & Sistem Informasi.",
+    edu_gpa_note: "Predikat Sangat Memuaskan dengan fokus pada Arsitektur Enterprise & Sistem Informasi.",
     cert_badge: "Sertifikasi Nasional",
     cert_name: "Junior Web Programmer",
     cert_issuer: "Badan Nasional Sertifikasi Profesi (BNSP)",
@@ -427,6 +443,8 @@ const experiencesData = [
 const projectsData = [
   {
     id: "sap-zppr-closing",
+    impactEn: "⚡ Real-time ALV drill-down for plant supervisors",
+    impactId: "⚡ Monitoring real-time drill-down untuk pengawas pabrik",
     category: "sap",
     icon: "file-spreadsheet",
     titleEn: "SAP Finished Goods Monitoring (ZPPR_CLOSING)",
@@ -453,6 +471,8 @@ const projectsData = [
   },
   {
     id: "sap-zmmrp-conversion",
+    impactEn: "📋 100% Customs compliance audit & zero discrepancy",
+    impactId: "📋 Kepatuhan audit bea cukai 100% & konsistensi saldo",
     category: "sap",
     icon: "file-text",
     titleEn: "SAP Imported Material Usage Report (ZMMRP_CONVERSION)",
@@ -477,6 +497,8 @@ const projectsData = [
   },
   {
     id: "sap-cm-deduction",
+    impactEn: "💰 Centralized production cost audit trail & validation",
+    impactId: "💰 Jejak audit biaya produksi terpusat & validasi otomatis",
     category: "sap",
     icon: "calculator",
     titleEn: "SAP CM Deduction Management (ZPPR_CM_DEDUCTION)",
@@ -501,6 +523,8 @@ const projectsData = [
   },
   {
     id: "sap-kpi-monitoring",
+    impactEn: "📈 Sub-second SELECT query runtime on high-volume tables",
+    impactId: "📈 Optimasi waktu eksekusi query sub-detik pada data masif",
     category: "sap",
     icon: "trending-up",
     titleEn: "SAP Production KPI Monitoring (ZSDR_KP_MONITORING)",
@@ -525,6 +549,8 @@ const projectsData = [
   },
   {
     id: "sap-qc-final",
+    impactEn: "🔍 Defect rate precision calculation & interactive PBO/PAI",
+    impactId: "🔍 Kalkulasi defect rate presisi & alur dialog PBO/PAI dinamis",
     category: "sap",
     icon: "check-square",
     titleEn: "SAP QC Final Inspection & Audit (ZQMPR_PQC_FINAL)",
@@ -549,6 +575,8 @@ const projectsData = [
   },
   {
     id: "sap-vendor-interface",
+    impactEn: "🔗 Automated PO & invoice interface with zero payload error",
+    impactId: "🔗 Pemrosesan otomatis PO & faktur tanpa anomali transmisi",
     category: "sap",
     icon: "network",
     titleEn: "SAP Vendor Web Interface Enhancement",
@@ -573,6 +601,8 @@ const projectsData = [
   },
   {
     id: "web-hospital-smartlink",
+    impactEn: "🏥 High-concurrency patient access & dynamic CMS panel",
+    impactId: "🏥 Akses informasi pasien lancar & update jadwal klinik instan",
     category: "web",
     icon: "hospital",
     titleEn: "Hospital Smartlink Centralized Portal",
@@ -597,6 +627,8 @@ const projectsData = [
   },
   {
     id: "web-employee-management",
+    impactEn: "🔒 Multi-tier RBAC security & automated shift roster engine",
+    impactId: "🔒 Keamanan hak akses RBAC & penjadwalan shift kerja otomatis",
     category: "web",
     icon: "users",
     titleEn: "Enterprise Employee Management & Shift System",
@@ -621,6 +653,8 @@ const projectsData = [
   },
   {
     id: "web-db-manager",
+    impactEn: "🛡️ Secure schema inspection & transaction query profiling",
+    impactId: "🛡️ Inspeksi skema aman & pemantauan performa transaksi",
     category: "web",
     icon: "database",
     titleEn: "Internal Database Manager & Monitor",
@@ -645,6 +679,8 @@ const projectsData = [
   },
   {
     id: "web-salary-system",
+    impactEn: "💵 Automated gross-to-net payroll engine & pay slip generation",
+    impactId: "💵 Kalkulasi payroll otomatis & pembuatan slip gaji terstruktur",
     category: "web",
     icon: "wallet",
     titleEn: "Employee Salary Management Web App",
@@ -813,6 +849,8 @@ const projectsData = [
   },
   {
     id: "game-flappy-bird",
+    impactEn: "🎮 Smooth 60 FPS HTML5 canvas physics & collision engine",
+    impactId: "🎮 Fisika game 60 FPS murni di canvas HTML5 & kalkulasi tabrakan",
     category: "desktop",
     icon: "gamepad-2",
     titleEn: "Flappy Bird Web Game Engine",
@@ -857,6 +895,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initBackToTop();
   initScrollReveal();
   initStatCounter();
+  initHeroTyping();
+  initHeroViewToggle();
+  initAskDevitaAssistant();
   lucide.createIcons();
 });
 
@@ -903,6 +944,7 @@ function setLanguage(lang) {
   renderExperiences();
   renderProjects();
   updateProjectCounts();
+  if (typeof globalRenderChips === "function") globalRenderChips();
   lucide.createIcons();
 }
 
@@ -1111,6 +1153,16 @@ function renderProjects() {
     const desc = isEn ? project.descEn : project.descId;
     const badgeText = isEn ? project.badgeEn : project.badgeId;
     const ctaText = translations[currentLang].btn_view_details;
+    const impact = isEn ? project.impactEn : project.impactId;
+
+    const impactHtml = impact ? `
+      <div class="mb-3">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-emerald-50 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/80">
+          <i data-lucide="zap" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i>
+          <span>${impact}</span>
+        </span>
+      </div>
+    ` : "";
 
     const techPills = project.tech.slice(0, 4).map(t => 
       `<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300">${t}</span>`
@@ -1131,9 +1183,11 @@ function renderProjects() {
           ${title}
         </h3>
         
-        <p class="text-xs text-brand-600 dark:text-brand-400 font-mono mb-3">
+        <p class="text-xs text-brand-600 dark:text-brand-400 font-mono mb-2">
           ${subtitle}
         </p>
+
+        ${impactHtml}
 
         <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 line-clamp-3 leading-relaxed mb-4">
           ${desc}
@@ -1526,4 +1580,192 @@ function initStatCounter() {
   }, { threshold: 0.5 });
 
   observer.observe(gpaEl);
+}
+
+// 21. HERO DYNAMIC TYPING HEADLINE EFFECT
+let globalTypeTimeout = null;
+function initHeroTyping() {
+  const typingEl = document.getElementById("hero-typing-text");
+  if (!typingEl) return;
+
+  const rolesEn = [
+    "SAP ABAP Enterprise Systems",
+    "Healthcare SIMRS & PostgreSQL",
+    "End-to-End System Architecture",
+    "High-Performance ALV Reporting",
+    "Business Process Technology"
+  ];
+
+  const rolesId = [
+    "Sistem Enterprise SAP ABAP",
+    "SIMRS Rumah Sakit & PostgreSQL",
+    "Pengembangan Sistem End-to-End",
+    "Pelaporan Analitik ALV Grid",
+    "Arsitektur Proses Bisnis IT"
+  ];
+
+  let roleIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+
+  if (globalTypeTimeout) clearTimeout(globalTypeTimeout);
+
+  function typeLoop() {
+    const list = currentLang === "en" ? rolesEn : rolesId;
+    const currentWord = list[roleIdx % list.length];
+
+    if (isDeleting) {
+      charIdx--;
+      typingEl.textContent = currentWord.substring(0, charIdx);
+    } else {
+      charIdx++;
+      typingEl.textContent = currentWord.substring(0, charIdx);
+    }
+
+    let delay = isDeleting ? 38 : 75;
+
+    if (!isDeleting && charIdx === currentWord.length) {
+      delay = 2200; // Pause at completed word
+      isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      roleIdx++;
+      delay = 400; // Pause before typing next word
+    }
+
+    globalTypeTimeout = setTimeout(typeLoop, delay);
+  }
+
+  typeLoop();
+}
+
+// 22. HERO MODE TOGGLE (Bio Overview vs Dev Terminal)
+function initHeroViewToggle() {
+  const tabBio = document.getElementById("hero-tab-bio");
+  const tabTerminal = document.getElementById("hero-tab-terminal");
+  const viewBio = document.getElementById("hero-view-bio");
+  const viewTerminal = document.getElementById("hero-view-terminal");
+
+  if (!tabBio || !tabTerminal || !viewBio || !viewTerminal) return;
+
+  tabBio.addEventListener("click", () => {
+    tabBio.classList.add("active-hero-tab");
+    tabTerminal.classList.remove("active-hero-tab");
+    viewBio.classList.remove("hidden");
+    viewTerminal.classList.add("hidden");
+  });
+
+  tabTerminal.addEventListener("click", () => {
+    tabTerminal.classList.add("active-hero-tab");
+    tabBio.classList.remove("active-hero-tab");
+    viewTerminal.classList.remove("hidden");
+    viewBio.classList.add("hidden");
+  });
+}
+
+// 23. ASK DEVITA INTERACTIVE PORTFOLIO ASSISTANT
+let globalRenderChips = null;
+function initAskDevitaAssistant() {
+  const triggerBtn = document.getElementById("ask-devita-btn");
+  const drawer = document.getElementById("ask-devita-drawer");
+  const closeBtn = document.getElementById("ask-devita-close");
+  const chatBox = document.getElementById("ask-devita-chat");
+  const chipsContainer = document.getElementById("chat-question-chips");
+
+  if (!triggerBtn || !drawer || !closeBtn || !chatBox || !chipsContainer) return;
+
+  const openDrawer = () => {
+    drawer.classList.add("active");
+    renderChips();
+    lucide.createIcons();
+  };
+
+  const closeDrawer = () => {
+    drawer.classList.remove("active");
+  };
+
+  triggerBtn.addEventListener("click", openDrawer);
+  closeBtn.addEventListener("click", closeDrawer);
+  drawer.addEventListener("click", (e) => {
+    if (e.target === drawer) closeDrawer();
+  });
+
+  const topics = [
+    {
+      id: "sap",
+      chipEn: "💼 SAP ABAP Core Skills",
+      chipId: "💼 Keahlian Utama SAP ABAP",
+      ansEn: "Devita specializes in enterprise SAP ABAP development at PT Kayu Mebel Indonesia and completed MSIB Batch 7 at PT Pan Brothers Tbk. Her core expertise covers: <strong>RICEF objects</strong>, interactive <strong>ALV Grids</strong> with drill-down logic, <strong>Dialog Programming (PBO/PAI)</strong> with Module Pools, <strong>SmartForms & SAPscript</strong>, ABAP Dictionary maintenance, and Transport Request (TR) packaging.",
+      ansId: "Devita berspesialisasi dalam pemrograman enterprise SAP ABAP di PT Kayu Mebel Indonesia dan menyelesaikan magang bersertifikat MSIB Batch 7 di PT Pan Brothers Tbk. Keahlian intinya meliputi: <strong>objek RICEF</strong>, <strong>ALV Grid interaktif</strong> dengan fitur drill-down, <strong>Dialog Programming (PBO/PAI)</strong> dengan Module Pool, <strong>SmartForms & SAPscript</strong>, pemeliharaan kamus data ABAP, serta perilisan Transport Request (TR)."
+    },
+    {
+      id: "experience",
+      chipEn: "🏥 Work Experience",
+      chipId: "🏥 Pengalaman Kerja & Industri",
+      ansEn: "Devita is currently working as a <strong>Software Developer at PT Kayu Mebel Indonesia</strong> managing SAP ERP programs. Previously, she interned as an <strong>IT Programmer at RS Arafah Anwar Medika</strong> developing healthcare information systems (SIMRS) with PostgreSQL, served as an <strong>SAP ABAP Programmer Intern at PT Pan Brothers Tbk</strong>, and was appointed as an <strong>Assistant Lecturer</strong> in Programming Languages at UPN Veteran Jatim.",
+      ansId: "Devita saat ini aktif sebagai <strong>Software Developer di PT Kayu Mebel Indonesia</strong> mengelola sistem SAP ERP. Sebelumnya, beliau magang sebagai <strong>IT Programmer di RS Arafah Anwar Medika</strong> mengembangkan SIMRS dengan database PostgreSQL, menjadi <strong>SAP ABAP Programmer Intern di PT Pan Brothers Tbk</strong>, serta dipercaya sebagai <strong>Asisten Dosen</strong> Bahasa Pemrograman di UPN Veteran Jatim."
+    },
+    {
+      id: "projects",
+      chipEn: "🚀 Top Flagship Projects",
+      chipId: "🚀 Proyek Unggulan Teratas",
+      ansEn: "Devita has completed <strong>17 technical projects</strong> across enterprise SAP, full-stack web, and mobile. Notable highlights include: <strong>ZPPR_CLOSING</strong> (Real-time Finished Goods ALV report), <strong>ZMMRP_CONVERSION</strong> (Customs compliance import tracking), <strong>Hospital Smartlink Portal</strong>, and an <strong>Enterprise Employee & Shift Roster System</strong> with RBAC.",
+      ansId: "Devita telah menyelesaikan <strong>17 proyek teknis</strong> di bidang enterprise SAP, web full-stack, dan mobile. Proyek unggulannya antara lain: <strong>ZPPR_CLOSING</strong> (Monitoring barang jadi dengan ALV Grid interaktif), <strong>ZMMRP_CONVERSION</strong> (Pelaporan material impor bea cukai), <strong>Platform Smartlink RS Arafah</strong>, serta <strong>Sistem Manajemen Pegawai & Shift Kerja</strong> berbasis RBAC."
+    },
+    {
+      id: "contact",
+      chipEn: "📱 How to Contact & Hire",
+      chipId: "📱 Kontak & Peluang Kolaborasi",
+      ansEn: "Devita is open for enterprise software engineering, SAP ABAP development, and system analyst roles! You can reach her directly via email at <a href='mailto:devitafahlizaulfa@gmail.com' class='text-brand-600 underline font-semibold'>devitafahlizaulfa@gmail.com</a>, connect on LinkedIn, or chat directly via WhatsApp: <a href='https://wa.me/6281355663905' target='_blank' class='text-emerald-600 font-bold underline'>+62 813-5566-3905</a>.",
+      ansId: "Devita sangat terbuka untuk peluang karier rekayasa perangkat lunak enterprise, pengembangan SAP ABAP, maupun posisi System Analyst! Anda dapat menghubungi beliau langsung via email di <a href='mailto:devitafahlizaulfa@gmail.com' class='text-brand-600 underline font-semibold'>devitafahlizaulfa@gmail.com</a>, LinkedIn, atau chat langsung via WhatsApp: <a href='https://wa.me/6281355663905' target='_blank' class='text-emerald-600 font-bold underline'>+62 813-5566-3905</a>."
+    }
+  ];
+
+  function renderChips() {
+    chipsContainer.innerHTML = "";
+    const isEn = currentLang === "en";
+
+    topics.forEach(t => {
+      const chip = document.createElement("button");
+      chip.className = "px-3 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50/50 dark:hover:bg-slate-800/80 transition-all text-left shadow-2xs";
+      chip.textContent = isEn ? t.chipEn : t.chipId;
+      chip.addEventListener("click", () => handleSelectTopic(t));
+      chipsContainer.appendChild(chip);
+    });
+  }
+
+  globalRenderChips = renderChips;
+
+  function handleSelectTopic(topic) {
+    const isEn = currentLang === "en";
+    const userQuestion = isEn ? topic.chipEn : topic.chipId;
+    const botAnswer = isEn ? topic.ansEn : topic.ansId;
+
+    // User message bubble
+    const userMsg = document.createElement("div");
+    userMsg.className = "flex justify-end";
+    userMsg.innerHTML = `
+      <div class="p-3 rounded-2xl rounded-tr-sm bg-brand-500 text-white font-medium text-xs sm:text-sm max-w-[85%] shadow-sm">
+        ${userQuestion}
+      </div>
+    `;
+    chatBox.appendChild(userMsg);
+
+    // Bot response bubble
+    setTimeout(() => {
+      const botMsg = document.createElement("div");
+      botMsg.className = "flex items-start gap-2.5";
+      botMsg.innerHTML = `
+        <div class="w-7 h-7 rounded-full bg-brand-500 text-white flex-shrink-0 flex items-center justify-center text-xs font-bold font-mono">D</div>
+        <div class="p-3.5 rounded-2xl rounded-tl-sm bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 leading-relaxed max-w-[88%] shadow-xs">
+          ${botAnswer}
+        </div>
+      `;
+      chatBox.appendChild(botMsg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+      lucide.createIcons();
+    }, 250);
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
 }
